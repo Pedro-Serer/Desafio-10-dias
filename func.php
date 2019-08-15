@@ -55,7 +55,7 @@
 
   //Função que atualiza os dados
   function alterar($emp, $pro, $des, $ape, $grp, $sub, $sit, $liq, $cla, $cod, $col, $ant){
-    $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+    $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
     $q = mysqli_query($conectar,
       "UPDATE PRODUTO SET produto.EMPRESA              = '$emp',
                           produto.PRODUTO              = '$pro',
@@ -103,7 +103,7 @@
   //Função que deleta o produto
   function deletar($produto)
   {
-    $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+    $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
     $q = mysqli_query($conectar,
       "DELETE FROM produto WHERE produto.PRODUTO = '$produto' LIMIT 1"
     );
@@ -113,7 +113,7 @@
 
   //Função que cria os valores do combobox
   function combobox(){
-    $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+    $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
     $q = mysqli_query($conectar,
       "SELECT grupo_produto.GRUPO_PRODUTO, DESCRICAO_GRUPO_PRODUTO FROM GRUPO_PRODUTO"
     );
@@ -127,12 +127,12 @@
 
 
   //Verifica de qual página vem os dados para poder aplicar devida função
-  if ($_SERVER['HTTP_REFERER'] == 'http://127.0.0.1/Teste/trovata/inserir.php')
+  if ($_SERVER['HTTP_REFERER'] == 'http://seudestino/inserir.php')
   {
     inserir($produto_emp, $produto_pro, $produto_des, $produto_ape, $produto_grp, $produto_sub, $produto_sit, $produto_liq, $produto_cla, $produto_cod, $produto_col);
   }
 
-  if ($_SERVER['HTTP_REFERER'] == 'http://127.0.0.1/Teste/trovata/editar.php')
+  if ($_SERVER['HTTP_REFERER'] == 'http://seudestino/editar.php')
   {
     alterar($produto_emp, $produto_pro, $produto_des, $produto_ape, $produto_grp, $produto_sub, $produto_sit, $produto_liq, $produto_cla, $produto_cod, $produto_col, $produto_ant);
   }
@@ -140,7 +140,7 @@
   //Função que mostra os dados na tela de update
   function mostra_dados($indice)
   {
-    $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+    $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
     $query    = mysqli_query($conectar,
       "SELECT prod.EMPRESA,
           prod.PRODUTO,
