@@ -20,7 +20,7 @@
   //Função que insere dados
   function inserir($emp, $pro, $des, $ape, $grp, $sub, $sit, $liq, $cla, $cod, $col)
   {
-    $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+    $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
     $q = mysqli_query($conectar,
       "INSERT INTO PRODUTO VALUES ('$emp', '$pro', '$des', '$ape', '$grp','$sub', '$sit', '$liq', '$cla', '$cod', '$col')"
     );
