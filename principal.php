@@ -1,7 +1,7 @@
 <?php
   error_reporting(0);
   //Conexão e pesquisa no banco de dados
-  $conectar         = mysqli_connect("127.0.0.1", "root", "", "trovata");
+  $conectar         = mysqli_connect("$host", "$admin", "$senha", "$tabela");
   $pesquisa_empresa = mysqli_query($conectar,
     "SELECT e.RAZAO_SOCIAL, c.DESCRICAO_CIDADE FROM empresa AS e JOIN cidade AS c ON e.EMPRESA = c.EMPRESA"
   );
