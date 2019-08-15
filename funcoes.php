@@ -1,10 +1,10 @@
 <?php
   error_reporting(0);
-  $conectar = mysqli_connect("127.0.0.1", "root", "", "trovata");
+  $conectar = mysqli_connect("$host", "$admin", "$senha", "$tabela");
   $c        = 0;
 
   //Verifica qual página veio a requisição, index é uma flag que indica qual empresa é
-  if ($_SERVER['HTTP_REFERER'] == 'http://127.0.0.1/Teste/trovata/roma_vendas.php')
+  if ($_SERVER['HTTP_REFERER'] == 'http://seuendereco/roma_vendas.php')
   {
     $indice = 1;
   } else
